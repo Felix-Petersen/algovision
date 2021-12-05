@@ -12,7 +12,7 @@ pip install algovision
 ```
 Applications include smoothly integrating algorithms into neural networks for algorithmic supervision, problem-specific optimization within an algorithm, and whatever your imagination allows.
 
-[comment]: <> (### [Check out the Documentation!]&#40;&#41;)
+### [Check out the Documentation!](https://felix-petersen.github.io/algovision-docs/)
 
 ## 🌱 Intro
 
