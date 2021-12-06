@@ -7,6 +7,45 @@ from algovision.core import *
 
 
 class Let(AlgoModule):
+    """
+
+    .. list-table:: Use cases of :class:`Let`
+       :widths: 38 24 37
+       :header-rows: 1
+       :class: tight-table
+
+       * - AlgoVision
+         - Python
+         - Description
+       * - ``Let('a', 'x')``
+         - ``a = x``
+         - Variable ``a`` is set to the value of variable ``x``.
+       * - ``Let('a', lambda x: x**2)``
+         - ``a = x**2``
+         - As soon as we compute anything on the right hand side of the equation, we need to write it as a ``lambda`` expression.
+       * - ``Let('a', 'array', ['i'])``
+         - ``a = array[i]``
+         - Indexing on the right hand requires an additional list parameter after the second argument.
+       * - ``Let('a', lambda array, i: array[:, i])``
+         - ``a = array[i]``
+         - Equivalent to the row above: indexing can also be manually done inside of a ``lambda`` expression. Note that in this case, the batch dimension has to be written explicitly.
+       * - ``Let('a', 'array', ['i', lambda j: j+1])``
+         - ``a = array[i, j+1]``
+         - Multiple indices and `lambda` expressions are also supported.
+       * - ``Let('a', 'array', [None, slice(0, None, 2)])``
+         - ``a = array[:, 0::2]``
+         - ``None`` and ``slice`` s are also supported.
+       * - ``Let('a', ['i'], 'x')``
+         - ``a[i] = x``
+         - Indexing can also be done on the left hand side of the equation.
+       * - ``Let('a', ['i'], 'x', ['j'])``
+         - ``a[i] = x['j']``
+         - ...or on both sides.
+       * - ``Let(['a', 'b'], lamba x, y: (x+y, x-y))``
+         - ``a, b = x+y, x-y``
+         - Multiple return values are supported.
+
+    """
     def __init__(self, *args):
         """
         The :class:`Let` module executes a lambda or arbitrary other function and writes the return values back to

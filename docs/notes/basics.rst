@@ -70,3 +70,10 @@ For example, ``Let('a', 'array', ['i'])`` is equivalent to ``Let('a', lambda arr
 Relaxed indexing on the right-hand side is only supported through ``lambda`` expressions due to its complexity.
 Relaxed indexing on the left-hand side is supported if exactly one probability weight tensor is in the list (e.g., ``Let('array', [lambda x: get_weights(x)], 'a')``).
 
+.. automodule:: algovision.instructions.Let
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :noindex:
+
+
