@@ -250,8 +250,9 @@ class State(object):
         assert p.shape[0] == self.batch_size, (p.shape, self.batch_size)
         assert len(p.shape) == len(self.state[key].shape), (p.shape, self.state[key].shape)
 
-        while len(value.shape) < len(self.state[key].shape):
-            value = value.unsqueeze(-1)
+        if not (isinstance(value, int) or isinstance(value, float)):
+            while len(value.shape) < len(self.state[key].shape):
+                value = value.unsqueeze(-1)
 
         # print('probabilistic_update', p.shape, self.state[key].shape, value.shape)
         self.state[key] = p * value + (1-p) * self.state[key]

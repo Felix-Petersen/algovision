@@ -16,7 +16,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='algovision',
-    version='v0.1.1',
+    version='v0.1.2',
     description='AlgoVision - A Framework for Differentiable Algorithms and Algorithmic Supervision',
     author='Felix Petersen',
     author_email=__email__,
